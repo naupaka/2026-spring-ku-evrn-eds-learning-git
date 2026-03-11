@@ -253,6 +253,110 @@ date  (1): endDate
 # ℹ 458 more rows</code></pre>
 </div>
 </div>
+<p>Next up, we’ll use <code>ggplot2</code> to make some figures!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>konza_data <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(family)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Asteraceae"</span> <span class="sc">|</span> family <span class="sc">==</span> <span class="st">"Poaceae"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> elevation,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> percentCover,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> family)) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparison of Asteraceae and Poaceae by elevation"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Percent Cover"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Elevation (m)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at 350.63</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 50.565</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 7.4185e-17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 2486.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+350.63</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+50.565</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 7.4185e-17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 2486.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at 424.37</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 49.865</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 9.3015e-17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 712.89</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+424.37</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+49.865</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 9.3015e-17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x
+else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 712.89</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Konza_analysis_files/figure-html/elevation-percent-by-family-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
