@@ -86,16 +86,13 @@ Next up, we'll use `ggplot2` to make some figures!
 konza_data %>%
   filter(!is.na(family)) %>%
   filter(family == "Asteraceae") %>%
-  ggplot(aes(x = elevation,
-             y = percentCover)) +
-  geom_point(aes(shape = plotID,
-                 color = elevation),
-             size = 3) +
-  geom_smooth() +
-  labs(title = "Comparison of Asteraceae and Poaceae by elevation",
+  ggplot() +
+  geom_boxplot(aes(x = elevation,
+                   y = percentCover,
+                   group = elevation)) +
+  labs(title = "Cover of Asteraceae by Elevation",
        y = "Percent Cover",
-       x = "Elevation (m)") +
-  scale_color_viridis_c()
+       x = "Elevation")
 ```
 
 
