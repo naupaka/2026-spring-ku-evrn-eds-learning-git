@@ -89,13 +89,13 @@ konza_data %>%
   ggplot(aes(x = elevation,
              y = percentCover)) +
   geom_point(aes(shape = plotID,
-                 color = plotID),
+                 color = elevation),
              size = 3) +
   geom_smooth() +
   labs(title = "Comparison of Asteraceae and Poaceae by elevation",
        y = "Percent Cover",
        x = "Elevation (m)") +
-  scale_color_manual(values = c("black", "dodgerblue", "blue", "red"))
+  scale_color_viridis_c()
 ```
 
 
